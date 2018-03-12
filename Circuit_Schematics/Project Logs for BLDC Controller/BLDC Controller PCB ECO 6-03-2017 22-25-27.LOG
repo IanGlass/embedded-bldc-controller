@@ -1,0 +1,84 @@
+Added Component: Designator=C1(Capacitor 0402)
+Added Component: Designator=C2(Capacitor 0402)
+Added Component: Designator=C3(Capacitor 0603)
+Added Component: Designator=C4(Capacitor 0402)
+Added Component: Designator=C5(Capacitor 0402)
+Added Component: Designator=C6(Capacitor 0402)
+Added Component: Designator=C7(Capacitor 0402)
+Added Component: Designator=DBG(20021111-00010T4LF)
+Added Component: Designator=M1(EFM32TG822F32)
+Added Component: Designator=OSC(ST3215SB32768H5HSZA1)
+Added Component: Designator=R1(Resistor 0402)
+Added Component: Designator=R2(Resistor 0603)
+Added Component: Designator=VReg(TPS78001DDCR)
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=12V Pin=C1-2
+Added Pin To Net: NetName=3V5 Pin=C2-1
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=GND Pin=C3-1
+Added Pin To Net: NetName=3V5 Pin=C3-2
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=NetC4_2 Pin=C4-2
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=NetC5_2 Pin=C5-2
+Added Pin To Net: NetName=NetC6_1 Pin=C6-1
+Added Pin To Net: NetName=GND Pin=C6-2
+Added Pin To Net: NetName=GND Pin=C7-1
+Added Pin To Net: NetName=3V5 Pin=C7-2
+Added Pin To Net: NetName=RESETN Pin=DBG-1
+Added Pin To Net: NetName=SWO Pin=DBG-3
+Added Pin To Net: NetName=SWCLK Pin=DBG-4
+Added Pin To Net: NetName=SWDIO Pin=DBG-5
+Added Pin To Net: NetName=GND Pin=DBG-6
+Added Pin To Net: NetName=GND Pin=DBG-8
+Added Pin To Net: NetName=GND Pin=DBG-9
+Added Pin To Net: NetName=3V5 Pin=DBG-10
+Added Pin To Net: NetName=3V5 Pin=M1-4
+Added Pin To Net: NetName=GND Pin=M1-5
+Added Pin To Net: NetName=NetC4_2 Pin=M1-11
+Added Pin To Net: NetName=NetC5_2 Pin=M1-12
+Added Pin To Net: NetName=RESETN Pin=M1-16
+Added Pin To Net: NetName=GND Pin=M1-18
+Added Pin To Net: NetName=3V5 Pin=M1-19
+Added Pin To Net: NetName=3V5 Pin=M1-22
+Added Pin To Net: NetName=3V5 Pin=M1-23
+Added Pin To Net: NetName=3V5 Pin=M1-28
+Added Pin To Net: NetName=NetC6_1 Pin=M1-29
+Added Pin To Net: NetName=SWCLK Pin=M1-37
+Added Pin To Net: NetName=SWDIO Pin=M1-38
+Added Pin To Net: NetName=SWO Pin=M1-39
+Added Pin To Net: NetName=3V5 Pin=M1-43
+Added Pin To Net: NetName=GND Pin=M1-44
+Added Pin To Net: NetName=DRIVE4 Pin=M1-45
+Added Pin To Net: NetName=DRIVE5 Pin=M1-46
+Added Pin To Net: NetName=DRIVE6 Pin=M1-47
+Added Pin To Net: NetName=NetC4_2 Pin=OSC-1
+Added Pin To Net: NetName=NetC5_2 Pin=OSC-2
+Added Pin To Net: NetName=NetR1_1 Pin=R1-1
+Added Pin To Net: NetName=3V5 Pin=R1-2
+Added Pin To Net: NetName=GND Pin=R2-1
+Added Pin To Net: NetName=NetR1_1 Pin=R2-2
+Added Pin To Net: NetName=12V Pin=VReg-1
+Added Pin To Net: NetName=GND Pin=VReg-2
+Added Pin To Net: NetName=12V Pin=VReg-3
+Added Pin To Net: NetName=NetR1_1 Pin=VReg-4
+Added Pin To Net: NetName=3V5 Pin=VReg-5
+Added Pin To Net: NetName=DRIVE Pin=M1-25
+Added Pin To Net: NetName=DRIVE Pin=M1-48
+Added Net: Name=DRIVE
+Added Pin To Net: NetName=PWM Pin=M1-36
+Added Net: Name=PWM
+Added Member To Class: ClassName=BLDC Controller Member=Component C1 1u
+Added Member To Class: ClassName=BLDC Controller Member=Component C2 100n
+Added Member To Class: ClassName=BLDC Controller Member=Component C3 4.7u
+Added Member To Class: ClassName=BLDC Controller Member=Component C4 12p
+Added Member To Class: ClassName=BLDC Controller Member=Component C5 12p
+Added Member To Class: ClassName=BLDC Controller Member=Component C6 1u
+Added Member To Class: ClassName=BLDC Controller Member=Component C7 1u
+Added Member To Class: ClassName=BLDC Controller Member=Component DBG 20021111-00010T4LF
+Added Member To Class: ClassName=BLDC Controller Member=Component M1 EFM32TG822F32
+Added Member To Class: ClassName=BLDC Controller Member=Component OSC ST3215SB32768H5HSZA1
+Added Member To Class: ClassName=BLDC Controller Member=Component R1 1M
+Added Member To Class: ClassName=BLDC Controller Member=Component R2 536k
+Added Member To Class: ClassName=BLDC Controller Member=Component VReg TPS78001DDCR
+Added Room: Name=BLDC Controller

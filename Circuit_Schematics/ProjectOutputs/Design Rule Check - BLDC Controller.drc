@@ -1,0 +1,91 @@
+Protel Design System Design Rule Check
+PCB File : D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc
+Date     : 13/03/2017
+Time     : 22:01:38
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.2mm) (All),(All)
+   Violation between Pad DBG-6(156.464mm,70.612mm)  Multi-Layer and 
+                     Pad DBG-1(156.464mm,69.342mm)  Multi-Layer
+   Violation between Pad DBG-2(155.194mm,69.342mm)  Multi-Layer and 
+                     Pad DBG-1(156.464mm,69.342mm)  Multi-Layer
+   Violation between Pad DBG-3(153.924mm,69.342mm)  Multi-Layer and 
+                     Pad DBG-2(155.194mm,69.342mm)  Multi-Layer
+   Violation between Pad DBG-8(153.924mm,70.612mm)  Multi-Layer and 
+                     Pad DBG-3(153.924mm,69.342mm)  Multi-Layer
+   Violation between Pad DBG-4(152.654mm,69.342mm)  Multi-Layer and 
+                     Pad DBG-3(153.924mm,69.342mm)  Multi-Layer
+   Violation between Pad DBG-5(151.384mm,69.342mm)  Multi-Layer and 
+                     Pad DBG-4(152.654mm,69.342mm)  Multi-Layer
+   Violation between Pad DBG-9(152.654mm,70.612mm)  Multi-Layer and 
+                     Pad DBG-4(152.654mm,69.342mm)  Multi-Layer
+   Violation between Pad DBG-10(151.384mm,70.612mm)  Multi-Layer and 
+                     Pad DBG-5(151.384mm,69.342mm)  Multi-Layer
+   Violation between Pad DBG-7(155.194mm,70.612mm)  Multi-Layer and 
+                     Pad DBG-6(156.464mm,70.612mm)  Multi-Layer
+   Violation between Pad DBG-8(153.924mm,70.612mm)  Multi-Layer and 
+                     Pad DBG-7(155.194mm,70.612mm)  Multi-Layer
+   Violation between Pad DBG-10(151.384mm,70.612mm)  Multi-Layer and 
+                     Pad DBG-9(152.654mm,70.612mm)  Multi-Layer
+Rule Violations :11
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.2mm) (Max=0.254mm) (Preferred=0.254mm) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)
+   Violation between Hole Size Constraint (3.1mm > 2.54mm) : Pad Free-1(156.464mm,60.198mm)  Multi-Layer
+Rule Violations :1
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)
+   Violation between Pad R1-2(148.955mm,64.262mm)  Top Layer and 
+                     Pad M1-43(148.907mm,62.714mm)  Top Layer
+   Violation between Pad R1-1(147.955mm,64.262mm)  Top Layer and 
+                     Pad M1-45(147.907mm,62.714mm)  Top Layer
+   Violation between Pad VReg-2(145.255mm,67.757mm)  Top Layer and 
+                     Pad VReg-3(145.255mm,66.807mm)  Top Layer
+   Violation between Pad VReg-1(145.255mm,68.707mm)  Top Layer and 
+                     Pad VReg-2(145.255mm,67.757mm)  Top Layer
+   Violation between Pad S1-3(138.557mm,60.738mm)  Multi-Layer and 
+                     Pad S1-(138.557mm,58.638mm)  Multi-Layer
+   Violation between Pad S1-1(138.557mm,64.738mm)  Multi-Layer and 
+                     Pad S1-(138.557mm,66.838mm)  Multi-Layer
+Rule Violations :6
+
+Processing Rule : Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)
+   Violation between Text "C6" (157.607mm,56.896mm)  Top Overlay and 
+                     Pad C6-1(156.972mm,57.023mm)  Top Layer
+   Violation between Text "C6" (157.607mm,56.896mm)  Top Overlay and 
+                     Pad C6-2(156.972mm,56.007mm)  Top Layer
+   Violation between Text "C1" (144.78mm,69.342mm)  Top Overlay and 
+                     Pad VReg-1(145.255mm,68.707mm)  Top Layer
+   Violation between Track (136.557mm,57.277mm)(140.557mm,57.277mm)  Top Overlay and 
+                     Pad S1-(138.557mm,58.638mm)  Multi-Layer
+   Violation between Track (136.557mm,68.072mm)(140.557mm,68.072mm)  Top Overlay and 
+                     Pad S1-(138.557mm,66.838mm)  Multi-Layer
+Rule Violations :5
+
+Processing Rule : Silk to Silk (Clearance=0.254mm) (All),(All)
+   Violation between Text "DBG" (158.75mm,68.961mm)  Top Overlay and 
+                     Track (157.734mm,68.262mm)(157.734mm,71.692mm)  Top Overlay
+Rule Violations :1
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+
+Violations Detected : 24
+Time Elapsed        : 00:00:00

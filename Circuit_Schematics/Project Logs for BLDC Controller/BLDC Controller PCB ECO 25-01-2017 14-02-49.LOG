@@ -1,0 +1,138 @@
+Added Component: Designator=C1(Capacitor 0402)
+Added Component: Designator=C2(Capacitor 0402)
+Added Component: Designator=C3(Capacitor 0603)
+Added Component: Designator=C4(Capacitor 0402)
+Added Component: Designator=C5(Capacitor 0402)
+Added Component: Designator=C6(Capacitor 0402)
+Added Component: Designator=C7(Capacitor 0402)
+Added Component: Designator=DBG(20021111-00010T4LF)
+Added Component: Designator=M2(LM339DR2G)
+Added Component: Designator=M3(LM339DR2G)
+Added Component: Designator=OSC(ST3215SB32768H5HSZA1)
+Added Component: Designator=R1(Resistor 0402)
+Added Component: Designator=R2(Resistor 0603)
+Added Component: Designator=R3(Resistor 0402)
+Added Component: Designator=R4(Resistor 0402)
+Added Component: Designator=U1(PSMN028-100YS)
+Added Component: Designator=U2(PSMN028-100YS)
+Added Component: Designator=U3(PSMN028-100YS)
+Added Component: Designator=U4(PSMN028-100YS)
+Added Component: Designator=U5(PSMN028-100YS)
+Added Component: Designator=U6(PSMN028-100YS)
+Added Component: Designator=VReg(TPS78001DDCR)
+Added Pin To Net: NetName=3V5 Pin=C2-1
+Added Pin To Net: NetName=3V5 Pin=C3-2
+Added Pin To Net: NetName=3V5 Pin=C7-2
+Added Pin To Net: NetName=3V5 Pin=DBG-10
+Added Pin To Net: NetName=3V5 Pin=R1-2
+Added Pin To Net: NetName=3V5 Pin=R3-2
+Added Pin To Net: NetName=3V5 Pin=VReg-5
+Added Net: Name=3V5
+Added Pin To Net: NetName=12V Pin=C1-2
+Added Pin To Net: NetName=12V Pin=M2-3
+Added Pin To Net: NetName=12V Pin=M3-3
+Added Pin To Net: NetName=12V Pin=U1-3
+Added Pin To Net: NetName=12V Pin=U3-3
+Added Pin To Net: NetName=12V Pin=U5-3
+Added Pin To Net: NetName=12V Pin=VReg-1
+Added Pin To Net: NetName=12V Pin=VReg-3
+Added Net: Name=12V
+Added Pin To Net: NetName=DRIVE1 Pin=M2-5
+Added Net: Name=DRIVE1
+Added Pin To Net: NetName=DRIVE2 Pin=M2-7
+Added Net: Name=DRIVE2
+Added Pin To Net: NetName=DRIVE3 Pin=M2-9
+Added Net: Name=DRIVE3
+Added Pin To Net: NetName=DRIVE4 Pin=M2-11
+Added Net: Name=DRIVE4
+Added Pin To Net: NetName=DRIVE5 Pin=M3-7
+Added Net: Name=DRIVE5
+Added Pin To Net: NetName=DRIVE6 Pin=M3-9
+Added Net: Name=DRIVE6
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=GND Pin=C3-1
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=GND Pin=C6-2
+Added Pin To Net: NetName=GND Pin=C7-1
+Added Pin To Net: NetName=GND Pin=DBG-6
+Added Pin To Net: NetName=GND Pin=DBG-8
+Added Pin To Net: NetName=GND Pin=DBG-9
+Added Pin To Net: NetName=GND Pin=M2-12
+Added Pin To Net: NetName=GND Pin=M3-12
+Added Pin To Net: NetName=GND Pin=R2-1
+Added Pin To Net: NetName=GND Pin=R4-1
+Added Pin To Net: NetName=GND Pin=U2-2
+Added Pin To Net: NetName=GND Pin=U4-2
+Added Pin To Net: NetName=GND Pin=U6-2
+Added Pin To Net: NetName=GND Pin=VReg-2
+Added Net: Name=GND
+Added Pin To Net: NetName=NetC4_2 Pin=C4-2
+Added Pin To Net: NetName=NetC4_2 Pin=OSC-1
+Added Net: Name=NetC4_2
+Added Pin To Net: NetName=NetC5_2 Pin=C5-2
+Added Pin To Net: NetName=NetC5_2 Pin=OSC-2
+Added Net: Name=NetC5_2
+Added Pin To Net: NetName=NetC6_1 Pin=C6-1
+Added Net: Name=NetC6_1
+Added Pin To Net: NetName=NetR1_1 Pin=R1-1
+Added Pin To Net: NetName=NetR1_1 Pin=R2-2
+Added Pin To Net: NetName=NetR1_1 Pin=VReg-4
+Added Net: Name=NetR1_1
+Added Pin To Net: NetName=NetU1_2 Pin=U1-2
+Added Pin To Net: NetName=NetU1_2 Pin=U2-3
+Added Net: Name=NetU1_2
+Added Pin To Net: NetName=NetU3_2 Pin=U3-2
+Added Pin To Net: NetName=NetU3_2 Pin=U4-3
+Added Net: Name=NetU3_2
+Added Pin To Net: NetName=NetU5_2 Pin=U5-2
+Added Pin To Net: NetName=NetU5_2 Pin=U6-3
+Added Net: Name=NetU5_2
+Added Pin To Net: NetName=PWM1 Pin=M2-2
+Added Pin To Net: NetName=PWM1 Pin=U1-1
+Added Pin To Net: NetName=PWM1 Pin=U1-1
+Added Net: Name=PWM1
+Added Pin To Net: NetName=PWM2 Pin=M2-1
+Added Pin To Net: NetName=PWM2 Pin=U2-1
+Added Pin To Net: NetName=PWM2 Pin=U2-1
+Added Net: Name=PWM2
+Added Pin To Net: NetName=PWM3 Pin=M2-14
+Added Pin To Net: NetName=PWM3 Pin=U3-1
+Added Pin To Net: NetName=PWM3 Pin=U3-1
+Added Net: Name=PWM3
+Added Pin To Net: NetName=PWM4 Pin=M2-13
+Added Pin To Net: NetName=PWM4 Pin=U4-1
+Added Pin To Net: NetName=PWM4 Pin=U4-1
+Added Net: Name=PWM4
+Added Pin To Net: NetName=PWM5 Pin=M3-1
+Added Pin To Net: NetName=PWM5 Pin=U5-1
+Added Pin To Net: NetName=PWM5 Pin=U5-1
+Added Net: Name=PWM5
+Added Pin To Net: NetName=PWM6 Pin=M3-14
+Added Pin To Net: NetName=PWM6 Pin=U6-1
+Added Pin To Net: NetName=PWM6 Pin=U6-1
+Added Net: Name=PWM6
+Added Pin To Net: NetName=RESETN Pin=DBG-1
+Added Net: Name=RESETN
+Added Pin To Net: NetName=SWCLK Pin=DBG-4
+Added Net: Name=SWCLK
+Added Pin To Net: NetName=SWDIO Pin=DBG-5
+Added Net: Name=SWDIO
+Added Pin To Net: NetName=SWO Pin=DBG-3
+Added Net: Name=SWO
+Added Pin To Net: NetName=VDIV Pin=M2-4
+Added Pin To Net: NetName=VDIV Pin=M2-6
+Added Pin To Net: NetName=VDIV Pin=M2-8
+Added Pin To Net: NetName=VDIV Pin=M2-10
+Added Pin To Net: NetName=VDIV Pin=M3-4
+Added Pin To Net: NetName=VDIV Pin=M3-6
+Added Pin To Net: NetName=VDIV Pin=M3-8
+Added Pin To Net: NetName=VDIV Pin=M3-10
+Added Pin To Net: NetName=VDIV Pin=R3-1
+Added Pin To Net: NetName=VDIV Pin=R4-2
+Added Net: Name=VDIV
+Added Class: Name=BLDC Controller
+Added Class: Name=BLDC Driver
+Added Room: Name=BLDC Controller
+Added Room: Name=BLDC Driver

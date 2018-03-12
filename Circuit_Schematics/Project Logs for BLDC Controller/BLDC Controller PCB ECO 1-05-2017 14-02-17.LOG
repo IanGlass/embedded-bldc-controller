@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=DRIVE Pin=M1-27
+Added Component: Designator=Pot1(25PR2KLF)
+Added Pin To Net: NetName=GND Pin=Pot1-1
+Added Pin To Net: NetName=DRIVE Pin=Pot1-3
+Added Pin To Net: NetName=NetM1_27 Pin=M1-27
+Added Pin To Net: NetName=NetM1_27 Pin=Pot1-2
+Added Net: Name=NetM1_27
+Added Member To Class: ClassName=BLDC Controller Member=Component Pot1 25PR2KLF

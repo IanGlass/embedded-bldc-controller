@@ -1,0 +1,447 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : sans-serif;
+			color : white;
+			background-color : #21489e;
+			padding: 0.3em;
+		}
+		body {
+			font-family : verdana;
+		}
+		td, th {
+			padding: 0.5em;
+			text-align : center;
+			width : 18%;
+		}
+		th {
+			background-color : #A6CAF0;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+		}
+		
+		.DRC_summary_header {							
+			padding-bottom : 0.1em;
+			border : 0px solid black;							
+			width: 100%;
+                        align: right;
+                        
+		}
+
+		.DRC_summary_header_col1, 
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3
+		{
+			color : black;
+			font-size:150%;
+                        padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2: 0em;
+			border : 0px solid black;
+			width : auto;
+			vertical-align: top;
+			font-weight: bold;				
+		}
+		
+		.DRC_summary_header_col1 	
+		{		                       
+			text-align: right;
+                        width: auto;	
+		}
+
+		.DRC_summary_header_col2 	
+		{		
+			text-align: center;	
+		}
+
+		.DRC_summary_header_col3 	
+		{		
+			text-align: left;	
+		}
+
+
+		
+		.header_holder
+		{
+		Width = 100%;
+		border = 0px solid green;
+		padding = 0;
+		}
+		
+		
+		
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+                {
+			left:0;
+			top:0;
+			padding-top : 0.1em;			
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top
+
+		}
+		.front_matter {	
+			
+			margin-top: 5px;
+ 			margin-left: 0px;					 			
+ 			horizontal-align: left;
+		}
+				
+		
+		.front_matter_column1 {
+			width : 10em;	
+			text-align  : right;
+			padding-right:0.1em;
+			
+		}
+		
+		.front_matter_column2 {
+                        width: 0.1em;
+			align: center;
+			text-align : center;
+			margin-right  : 0.1em;	
+			margin-left   : 0.1em;
+		}
+		.front_matter_column3 {
+			width         : auto;  
+			text-align    : left;	
+			margin-right  : 0.5em;				
+		}
+		
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : right;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #EEEEE0 
+		}
+		tr.onmouseout_even { 
+			background-color : #F3F3E3   
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : lightYellow
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #008000 
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD13\Templates\AD-rgb_logo_223x64.gif
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td Style="width:70%">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">13/03/2017</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">22:01:38</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3"><a href="file:///D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc" class="file"><acronym title="D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc">D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td Style="Width:30%">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3" style="color : red">24</td></tr>
+</table>
+</td>
+</table>
+<hr><a name="IDASA25C"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAEB25C">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAKB25C">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAQB25C">Clearance Constraint (Gap=0.2mm) (All),(All)</a></td>
+<td class="column2">11</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAZE25C">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA5E25C">Width Constraint (Min=0.2mm) (Max=0.254mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAFF25C">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDALF25C">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAXF25C">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA3F25C">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAZH25C">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">5</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAPR25C">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDA4R25C">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">24</td>
+</tr>
+</table><br><hr><a name="IDAQB25C"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Clearance Constraint (Gap=0.2mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6118.189mil|Location2.X=6201.811mil|Location1.Y=2738.189mil|Location2.Y=2821.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6118.189mil|Location2.X=6201.811mil|Location1.Y=2738.189mil|Location2.Y=2821.811mil|Absolute=True">Pad DBG-6(156.464mm,70.612mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6128.189mil|Location2.X=6191.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6128.189mil|Location2.X=6191.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True">Pad DBG-1(156.464mm,69.342mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6078.189mil|Location2.X=6141.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6078.189mil|Location2.X=6141.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True">Pad DBG-2(155.194mm,69.342mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6128.189mil|Location2.X=6191.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6128.189mil|Location2.X=6191.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True">Pad DBG-1(156.464mm,69.342mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6028.189mil|Location2.X=6091.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6028.189mil|Location2.X=6091.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True">Pad DBG-3(153.924mm,69.342mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6078.189mil|Location2.X=6141.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6078.189mil|Location2.X=6141.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True">Pad DBG-2(155.194mm,69.342mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6018.189mil|Location2.X=6101.811mil|Location1.Y=2738.189mil|Location2.Y=2821.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6018.189mil|Location2.X=6101.811mil|Location1.Y=2738.189mil|Location2.Y=2821.811mil|Absolute=True">Pad DBG-8(153.924mm,70.612mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6028.189mil|Location2.X=6091.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6028.189mil|Location2.X=6091.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True">Pad DBG-3(153.924mm,69.342mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5978.189mil|Location2.X=6041.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5978.189mil|Location2.X=6041.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True">Pad DBG-4(152.654mm,69.342mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6028.189mil|Location2.X=6091.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6028.189mil|Location2.X=6091.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True">Pad DBG-3(153.924mm,69.342mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5928.189mil|Location2.X=5991.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5928.189mil|Location2.X=5991.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True">Pad DBG-5(151.384mm,69.342mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5978.189mil|Location2.X=6041.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5978.189mil|Location2.X=6041.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True">Pad DBG-4(152.654mm,69.342mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5968.189mil|Location2.X=6051.811mil|Location1.Y=2738.189mil|Location2.Y=2821.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5968.189mil|Location2.X=6051.811mil|Location1.Y=2738.189mil|Location2.Y=2821.811mil|Absolute=True">Pad DBG-9(152.654mm,70.612mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5978.189mil|Location2.X=6041.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5978.189mil|Location2.X=6041.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True">Pad DBG-4(152.654mm,69.342mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5918.189mil|Location2.X=6001.811mil|Location1.Y=2738.189mil|Location2.Y=2821.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5918.189mil|Location2.X=6001.811mil|Location1.Y=2738.189mil|Location2.Y=2821.811mil|Absolute=True">Pad DBG-10(151.384mm,70.612mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5928.189mil|Location2.X=5991.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5928.189mil|Location2.X=5991.811mil|Location1.Y=2698.189mil|Location2.Y=2761.811mil|Absolute=True">Pad DBG-5(151.384mm,69.342mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6078.189mil|Location2.X=6141.811mil|Location1.Y=2748.189mil|Location2.Y=2811.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6078.189mil|Location2.X=6141.811mil|Location1.Y=2748.189mil|Location2.Y=2811.811mil|Absolute=True">Pad DBG-7(155.194mm,70.612mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6118.189mil|Location2.X=6201.811mil|Location1.Y=2738.189mil|Location2.Y=2821.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6118.189mil|Location2.X=6201.811mil|Location1.Y=2738.189mil|Location2.Y=2821.811mil|Absolute=True">Pad DBG-6(156.464mm,70.612mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6018.189mil|Location2.X=6101.811mil|Location1.Y=2738.189mil|Location2.Y=2821.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6018.189mil|Location2.X=6101.811mil|Location1.Y=2738.189mil|Location2.Y=2821.811mil|Absolute=True">Pad DBG-8(153.924mm,70.612mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6078.189mil|Location2.X=6141.811mil|Location1.Y=2748.189mil|Location2.Y=2811.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6078.189mil|Location2.X=6141.811mil|Location1.Y=2748.189mil|Location2.Y=2811.811mil|Absolute=True">Pad DBG-7(155.194mm,70.612mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5918.189mil|Location2.X=6001.811mil|Location1.Y=2738.189mil|Location2.Y=2821.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5918.189mil|Location2.X=6001.811mil|Location1.Y=2738.189mil|Location2.Y=2821.811mil|Absolute=True">Pad DBG-10(151.384mm,70.612mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5968.189mil|Location2.X=6051.811mil|Location1.Y=2738.189mil|Location2.Y=2821.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5968.189mil|Location2.X=6051.811mil|Location1.Y=2738.189mil|Location2.Y=2821.811mil|Absolute=True">Pad DBG-9(152.654mm,70.612mm)  Multi-Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDALF25C"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6098.351mil|Location2.X=6221.649mil|Location1.Y=2308.351mil|Location2.Y=2431.649mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6098.351mil|Location2.X=6221.649mil|Location1.Y=2308.351mil|Location2.Y=2431.649mil|Absolute=True">Hole Size Constraint (3.1mm &gt; 2.54mm) : Pad Free-1(156.464mm,60.198mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDA3F25C"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5850.528mil|Location2.X=5878.213mil|Location1.Y=2514.189mil|Location2.Y=2545.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5850.528mil|Location2.X=5878.213mil|Location1.Y=2514.189mil|Location2.Y=2545.811mil|Absolute=True">Pad R1-2(148.955mm,64.262mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5852.575mil|Location2.X=5872.386mil|Location1.Y=2433.559mil|Location2.Y=2504.551mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5852.575mil|Location2.X=5872.386mil|Location1.Y=2433.559mil|Location2.Y=2504.551mil|Absolute=True">Pad M1-43(148.907mm,62.714mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5811.158mil|Location2.X=5838.842mil|Location1.Y=2514.189mil|Location2.Y=2545.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5811.158mil|Location2.X=5838.842mil|Location1.Y=2514.189mil|Location2.Y=2545.811mil|Absolute=True">Pad R1-1(147.955mm,64.262mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5813.205mil|Location2.X=5833.016mil|Location1.Y=2433.559mil|Location2.Y=2504.551mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5813.205mil|Location2.X=5833.016mil|Location1.Y=2433.559mil|Location2.Y=2504.551mil|Absolute=True">Pad M1-45(147.907mm,62.714mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5695.016mil|Location2.X=5742.386mil|Location1.Y=2651.787mil|Location2.Y=2683.409mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5695.016mil|Location2.X=5742.386mil|Location1.Y=2651.787mil|Location2.Y=2683.409mil|Absolute=True">Pad VReg-2(145.255mm,67.757mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5695.016mil|Location2.X=5742.386mil|Location1.Y=2614.386mil|Location2.Y=2646.008mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5695.016mil|Location2.X=5742.386mil|Location1.Y=2614.386mil|Location2.Y=2646.008mil|Absolute=True">Pad VReg-3(145.255mm,66.807mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5695.016mil|Location2.X=5742.386mil|Location1.Y=2689.189mil|Location2.Y=2720.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5695.016mil|Location2.X=5742.386mil|Location1.Y=2689.189mil|Location2.Y=2720.811mil|Absolute=True">Pad VReg-1(145.255mm,68.707mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5695.016mil|Location2.X=5742.386mil|Location1.Y=2651.787mil|Location2.Y=2683.409mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5695.016mil|Location2.X=5742.386mil|Location1.Y=2651.787mil|Location2.Y=2683.409mil|Absolute=True">Pad VReg-2(145.255mm,67.757mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5419.252mil|Location2.X=5490.748mil|Location1.Y=2355.512mil|Location2.Y=2427.008mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5419.252mil|Location2.X=5490.748mil|Location1.Y=2355.512mil|Location2.Y=2427.008mil|Absolute=True">Pad S1-3(138.557mm,60.738mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5405.472mil|Location2.X=5504.528mil|Location1.Y=2259.055mil|Location2.Y=2358.11mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5405.472mil|Location2.X=5504.528mil|Location1.Y=2259.055mil|Location2.Y=2358.11mil|Absolute=True">Pad S1-(138.557mm,58.638mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5419.252mil|Location2.X=5490.748mil|Location1.Y=2512.992mil|Location2.Y=2584.488mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5419.252mil|Location2.X=5490.748mil|Location1.Y=2512.992mil|Location2.Y=2584.488mil|Absolute=True">Pad S1-1(138.557mm,64.738mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5405.472mil|Location2.X=5504.528mil|Location1.Y=2581.89mil|Location2.Y=2680.945mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5405.472mil|Location2.X=5504.528mil|Location1.Y=2581.89mil|Location2.Y=2680.945mil|Absolute=True">Pad S1-(138.557mm,66.838mm)  Multi-Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDAZH25C"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6197.126mil|Location2.X=6236.488mil|Location1.Y=2192.769mil|Location2.Y=2247.874mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6197.126mil|Location2.X=6236.488mil|Location1.Y=2192.769mil|Location2.Y=2247.874mil|Absolute=True">Text "C6" (157.607mm,56.896mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6164.189mil|Location2.X=6195.811mil|Location1.Y=2231.157mil|Location2.Y=2258.843mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6164.189mil|Location2.X=6195.811mil|Location1.Y=2231.157mil|Location2.Y=2258.843mil|Absolute=True">Pad C6-1(156.972mm,57.023mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6197.126mil|Location2.X=6236.488mil|Location1.Y=2192.769mil|Location2.Y=2247.874mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6197.126mil|Location2.X=6236.488mil|Location1.Y=2192.769mil|Location2.Y=2247.874mil|Absolute=True">Text "C6" (157.607mm,56.896mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6164.189mil|Location2.X=6195.811mil|Location1.Y=2191.157mil|Location2.Y=2218.843mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6164.189mil|Location2.X=6195.811mil|Location1.Y=2191.157mil|Location2.Y=2218.843mil|Absolute=True">Pad C6-2(156.972mm,56.007mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5668.512mil|Location2.X=5707.874mil|Location1.Y=2722.126mil|Location2.Y=2769.36mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5668.512mil|Location2.X=5707.874mil|Location1.Y=2722.126mil|Location2.Y=2769.36mil|Absolute=True">Text "C1" (144.78mm,69.342mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5695.016mil|Location2.X=5742.386mil|Location1.Y=2689.189mil|Location2.Y=2720.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5695.016mil|Location2.X=5742.386mil|Location1.Y=2689.189mil|Location2.Y=2720.811mil|Absolute=True">Pad VReg-1(145.255mm,68.707mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5371.26mil|Location2.X=5538.74mil|Location1.Y=2250mil|Location2.Y=2260mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5371.26mil|Location2.X=5538.74mil|Location1.Y=2250mil|Location2.Y=2260mil|Absolute=True">Track (136.557mm,57.277mm)(140.557mm,57.277mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5405.472mil|Location2.X=5504.528mil|Location1.Y=2259.055mil|Location2.Y=2358.11mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5405.472mil|Location2.X=5504.528mil|Location1.Y=2259.055mil|Location2.Y=2358.11mil|Absolute=True">Pad S1-(138.557mm,58.638mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5371.26mil|Location2.X=5538.74mil|Location1.Y=2675mil|Location2.Y=2685mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5371.26mil|Location2.X=5538.74mil|Location1.Y=2675mil|Location2.Y=2685mil|Absolute=True">Track (136.557mm,68.072mm)(140.557mm,68.072mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5405.472mil|Location2.X=5504.528mil|Location1.Y=2581.89mil|Location2.Y=2680.945mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5405.472mil|Location2.X=5504.528mil|Location1.Y=2581.89mil|Location2.Y=2680.945mil|Absolute=True">Pad S1-(138.557mm,66.838mm)  Multi-Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDAPR25C"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Silk to Silk (Clearance=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6218.512mil|Location2.X=6257.874mil|Location1.Y=2707.126mil|Location2.Y=2785.846mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6218.512mil|Location2.X=6257.874mil|Location1.Y=2707.126mil|Location2.Y=2785.846mil|Absolute=True">Text "DBG" (158.75mm,68.961mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6207.5mil|Location2.X=6212.5mil|Location1.Y=2684.98mil|Location2.Y=2825.02mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\University\Consulting\Fuel Pump Controller\PCB\BLDC Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6207.5mil|Location2.X=6212.5mil|Location1.Y=2684.98mil|Location2.Y=2825.02mil|Absolute=True">Track (157.734mm,68.262mm)(157.734mm,71.692mm)  Top Overlay</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br></body>
+</html>

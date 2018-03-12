@@ -1,0 +1,8 @@
+Added Component: Designator=R3(Resistor 0603)
+Added Component: Designator=R4(Resistor 0603)
+Added Pin To Net: NetName=NetM1_27 Pin=R3-1
+Added Pin To Net: NetName=DRIVE Pin=R3-2
+Added Pin To Net: NetName=GND Pin=R4-1
+Added Pin To Net: NetName=NetM1_27 Pin=R4-2
+Added Member To Class: ClassName=BLDC Controller Member=Component R3 Resistor 0603
+Added Member To Class: ClassName=BLDC Controller Member=Component R4 Resistor 0603

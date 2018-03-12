@@ -1,0 +1,24 @@
+Added Component: Designator=M1(EFM32TG822F32)
+Added Pin To Net: NetName=3V5 Pin=M1-4
+Added Pin To Net: NetName=GND Pin=M1-5
+Added Pin To Net: NetName=NetC4_2 Pin=M1-11
+Added Pin To Net: NetName=NetC5_2 Pin=M1-12
+Added Pin To Net: NetName=RESETN Pin=M1-16
+Added Pin To Net: NetName=GND Pin=M1-18
+Added Pin To Net: NetName=3V5 Pin=M1-19
+Added Pin To Net: NetName=3V5 Pin=M1-22
+Added Pin To Net: NetName=3V5 Pin=M1-23
+Added Pin To Net: NetName=3V5 Pin=M1-28
+Added Pin To Net: NetName=NetC6_1 Pin=M1-29
+Added Pin To Net: NetName=DRIVE1 Pin=M1-34
+Added Pin To Net: NetName=DRIVE2 Pin=M1-35
+Added Pin To Net: NetName=DRIVE3 Pin=M1-36
+Added Pin To Net: NetName=SWCLK Pin=M1-37
+Added Pin To Net: NetName=SWDIO Pin=M1-38
+Added Pin To Net: NetName=SWO Pin=M1-39
+Added Pin To Net: NetName=3V5 Pin=M1-43
+Added Pin To Net: NetName=GND Pin=M1-44
+Added Pin To Net: NetName=DRIVE4 Pin=M1-45
+Added Pin To Net: NetName=DRIVE5 Pin=M1-46
+Added Pin To Net: NetName=DRIVE6 Pin=M1-47
+Added Member To Class: ClassName=BLDC Controller Member=Component M1 EFM32TG822F32
