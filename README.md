@@ -6,4 +6,4 @@
 
 <img src="https://github.com/IanGlass/Embedded-BLDC-Controller/blob/master/Circuit_Schematics/BLDC_Controller_Schematic.jpg" width="700">
 <img src="https://github.com/IanGlass/Embedded-BLDC-Controller/blob/master/Circuit_Schematics/BLDC_Controller_PCB.JPG" width="420">
-<img src="https://github.com/IanGlass/Embedded-BLDC-Controller/blob/master/Circuit_Schematics/BLDC_Image.JPG" width="420"> 
+<img src="https://github.com/IanGlass/Embedded-BLDC-Controller/blob/master/Circuit_Schematics/BLDC_Image.jpg" width="420"> 
