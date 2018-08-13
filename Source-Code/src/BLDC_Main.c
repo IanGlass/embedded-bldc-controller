@@ -1,10 +1,9 @@
 /**************************************************************************//**
 * @file BLDC_Main.c
-* @brief Rangefinder main module
 * @author Ian Glass
 * @version 3.20.2
 * @date    28-July-2018
-* @brief   Main module for the Rangefinder
+* @brief   Main module for the BLDC driver
 *******************************************************************************
 *
 * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
